@@ -13,15 +13,17 @@ export const membraneContext = (baseClass) => {
             this._adminWebsocket = undefined;
         }
         set cellId(value) {
-            this.requestUpdate('cellId', this._cellId);
+            let oldVal = this._cellId;
             this._cellId = value;
+            this.requestUpdate('cellId', oldVal);
         }
         get cellId() {
             return this._cellId ? this._cellId : this.holochainMembraneContext.cellId;
         }
         set appWebsocket(value) {
-            this.requestUpdate('appWebsocket', this._appWebsocket);
+            let oldVal = this._appWebsocket;
             this._appWebsocket = value;
+            this.requestUpdate('appWebsocket', oldVal);
         }
         get appWebsocket() {
             return this._appWebsocket
@@ -29,8 +31,9 @@ export const membraneContext = (baseClass) => {
                 : this.holochainMembraneContext.appWebsocket;
         }
         set adminWebsocket(value) {
-            this.requestUpdate('adminWebsocket', this._adminWebsocket);
+            let oldVal = this._adminWebsocket;
             this._adminWebsocket = value;
+            this.requestUpdate('adminWebsocket', oldVal);
         }
         get adminWebsocket() {
             return this._adminWebsocket

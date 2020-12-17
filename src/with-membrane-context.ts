@@ -22,13 +22,14 @@ export const membraneContext = <T extends Constructor<LitElement>>(
   baseClass: T
 ): T & Constructor<MembraneContext> => {
   class MembraneContextElement extends membraneContextRaw(baseClass) {
-    @property({type: Object})
+    @property({ type: Object })
     holochainMembraneContext!: MembraneContext;
 
     private _cellId!: CellId;
     set cellId(value: CellId) {
-      this.requestUpdate('cellId', this._cellId);
+      let oldVal = this._cellId;
       this._cellId = value;
+      this.requestUpdate('cellId', oldVal);
     }
 
     get cellId() {
@@ -37,8 +38,9 @@ export const membraneContext = <T extends Constructor<LitElement>>(
 
     private _appWebsocket!: AppWebsocket;
     set appWebsocket(value: AppWebsocket) {
-      this.requestUpdate('appWebsocket', this._appWebsocket);
+      let oldVal = this._appWebsocket;
       this._appWebsocket = value;
+      this.requestUpdate('appWebsocket', oldVal);
     }
 
     get appWebsocket() {
@@ -49,8 +51,9 @@ export const membraneContext = <T extends Constructor<LitElement>>(
 
     private _adminWebsocket: AdminWebsocket | undefined = undefined;
     set adminWebsocket(value: AdminWebsocket | undefined) {
-      this.requestUpdate('adminWebsocket', this._adminWebsocket);
+      let oldVal = this._adminWebsocket;
       this._adminWebsocket = value;
+      this.requestUpdate('adminWebsocket', oldVal);
     }
 
     get adminWebsocket(): AdminWebsocket | undefined {
