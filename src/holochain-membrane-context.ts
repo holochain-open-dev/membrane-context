@@ -12,16 +12,7 @@ export class HolochainMembraneContext extends withContext(LitElement) {
       },
     };
   }
-
-  connectedCallback() {
-    super.connectedCallback();
-    this.updateProvidedContext('membrane', {
-      cellId: this.cellId,
-      appWebsocket: this.appWebsocket,
-      adminWebsocket: this.adminWebsocket,
-    });
-  }
-
+  
   @property({ type: Array })
   cellId!: CellId;
   @property({ type: Object })

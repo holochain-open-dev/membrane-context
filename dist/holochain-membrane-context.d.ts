@@ -8,7 +8,6 @@ export declare class HolochainMembraneContext extends HolochainMembraneContext_b
             adminWebsocket: null;
         };
     };
-    connectedCallback(): void;
     cellId: CellId;
     appWebsocket: AppWebsocket;
     adminWebsocket: AdminWebsocket;
