@@ -10,6 +10,11 @@ export const membraneContext = (baseClass) => {
     class MembraneContextElement extends membraneContextRaw(baseClass) {
         constructor() {
             super(...arguments);
+            this.holochainMembraneContext = {
+                cellId: undefined,
+                adminWebsocket: undefined,
+                appWebsocket: undefined,
+            };
             this._adminWebsocket = undefined;
         }
         set cellId(value) {

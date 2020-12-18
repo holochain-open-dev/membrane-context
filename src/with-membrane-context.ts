@@ -3,8 +3,8 @@ import { Constructor, LitElement, property } from 'lit-element';
 import { ConsumerMixin } from 'lit-element-context';
 
 export interface MembraneContext {
-  cellId: CellId;
-  appWebsocket: AppWebsocket;
+  cellId?: CellId;
+  appWebsocket?: AppWebsocket;
   adminWebsocket?: AdminWebsocket;
 }
 
@@ -23,10 +23,14 @@ export const membraneContext = <T extends Constructor<LitElement>>(
 ): T & Constructor<MembraneContext> => {
   class MembraneContextElement extends membraneContextRaw(baseClass) {
     @property({ type: Object })
-    holochainMembraneContext!: MembraneContext;
+    holochainMembraneContext: MembraneContext = {
+      cellId: undefined,
+      adminWebsocket: undefined,
+      appWebsocket: undefined,
+    };
 
-    private _cellId!: CellId;
-    set cellId(value: CellId) {
+    private _cellId!: CellId | undefined;
+    set cellId(value: CellId | undefined) {
       let oldVal = this._cellId;
       this._cellId = value;
       this.requestUpdate('cellId', oldVal);
@@ -36,8 +40,8 @@ export const membraneContext = <T extends Constructor<LitElement>>(
       return this._cellId ? this._cellId : this.holochainMembraneContext.cellId;
     }
 
-    private _appWebsocket!: AppWebsocket;
-    set appWebsocket(value: AppWebsocket) {
+    private _appWebsocket!: AppWebsocket | undefined;
+    set appWebsocket(value: AppWebsocket | undefined) {
       let oldVal = this._appWebsocket;
       this._appWebsocket = value;
       this.requestUpdate('appWebsocket', oldVal);
