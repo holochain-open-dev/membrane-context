@@ -9,11 +9,11 @@
     </style>
   </head>
   <body>
-    <holochain-membrane-context id="provider"
+    <membrane-context-provider id="provider"
       ><mock-consumer></mock-consumer>
-    </holochain-membrane-context>
+    </membrane-context-provider>
     <script type="module">
-      import { HolochainMembraneContext, membraneContext } from '../dist';
+      import { MembraneContextProvider, membraneContext } from '../dist';
       import { LitElement, html } from 'lit-element';
 
       (async function () {
@@ -22,15 +22,15 @@
         const cellId = [[], []];
 
         customElements.define(
-          'holochain-membrane-context',
-          HolochainMembraneContext
+          'membrane-context-provider',
+          MembraneContextProvider
         );
 
         customElements.define(
           'mock-consumer',
           class extends membraneContext(LitElement) {
             render() {
-              return html`<span>${this.appWebsocket}</span>`;
+              return html`<span>${this.membraneContext.appWebsocket}</span>`;
             }
           }
         );

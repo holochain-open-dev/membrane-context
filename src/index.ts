@@ -1,2 +1,2 @@
-export * from './holochain-membrane-context';
+export * from './membrane-context-provider';
 export * from './with-membrane-context';

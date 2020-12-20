@@ -3,7 +3,7 @@ import { ProviderMixin } from 'lit-element-context';
 import { AdminWebsocket, AppWebsocket, CellId } from '@holochain/conductor-api';
 import { MembraneContext } from './with-membrane-context';
 
-export class HolochainMembraneContext extends ProviderMixin(LitElement) {
+export class MembraneContextProvider extends ProviderMixin(LitElement) {
   static get provide() {
     return ['membraneContext'];
   }
