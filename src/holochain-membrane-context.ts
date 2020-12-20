@@ -5,11 +5,11 @@ import { MembraneContext } from './with-membrane-context';
 
 export class HolochainMembraneContext extends ProviderMixin(LitElement) {
   static get provide() {
-    return ['holochainMembraneContext'];
+    return ['membraneContext'];
   }
 
   @property({ type: Object })
-  holochainMembraneContext: MembraneContext = {
+  membraneContext: MembraneContext = {
     adminWebsocket: undefined,
     appWebsocket: undefined as any,
     cellId: undefined as any,
@@ -27,10 +27,10 @@ export class HolochainMembraneContext extends ProviderMixin(LitElement) {
     if (
       !(
         changedValues.size === 1 &&
-        changedValues.has('holochainMembraneContext')
+        changedValues.has('membraneContext')
       )
     ) {
-      this.holochainMembraneContext = {
+      this.membraneContext = {
         cellId: this.cellId,
         appWebsocket: this.appWebsocket,
         adminWebsocket: this.adminWebsocket,
