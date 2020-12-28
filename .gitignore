@@ -16,6 +16,6 @@
 /.tmp/
 
 # build
-dist/
+/dist/
 /_site/
 /out-tsc/
