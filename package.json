@@ -1,6 +1,6 @@
 {
   "name": "@holochain-open-dev/membrane-context",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Webcomponent ui-ui following open-wc recommendations",
   "author": "guillem.cordoba@gmail.com",
   "license": "MIT",
